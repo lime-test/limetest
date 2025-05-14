@@ -1,0 +1,40 @@
+name: Limetest Example Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    # Manual trigger
+
+jobs:
+  run-limetest-cli:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js 18
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 10.10.0
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Build packages
+      run: pnpm run build
+
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps chrome
+
+    - name: Run Limetest
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: npx limetest examples/example.spec.md 
