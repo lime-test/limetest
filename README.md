@@ -37,7 +37,7 @@ npx limetest example
 
 ## limetest MCP Server
 
-https://github.com/user-attachments/assets/b801f239-dc66-4b3b-bcf2-42e2a9a68721
+https://github.com/user-attachments/assets/74d7ff99-8d7d-461b-8897-e266ccb82e1d
 
 A Model Context Protocol (MCP) server powered by [Playwright](https://playwright.dev) that allows your MCP client to perform end to end validation its own changes.
 
