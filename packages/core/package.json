@@ -1,6 +1,6 @@
 {
   "name": "@limetest/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Core Playwright automation library for Best testing framework",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
